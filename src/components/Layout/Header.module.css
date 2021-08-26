@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #202020;
+  color: white;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+.landing-image {
+  width: 120%;
+  height: 25rem;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #e3e3e3;
+  transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+}
