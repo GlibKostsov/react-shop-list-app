@@ -1,17 +1,17 @@
+import ProductItem from './ProductItem/ProductItem'
 import Card from '../UI/Card'
 import classes from './ProductsList.module.css'
 import PRODUCTS from '../../store/dataSeed'
 
 const ProductsList = () => {
   const productsList = PRODUCTS.map((product) => (
-    <li key={product.id}>
-      <div>
-        <h3>{product.name}</h3>
-        <div>{product.description}</div>
-        <div>{product.price}</div>
-      </div>
-      <form action=''></form>
-    </li>
+    <ProductItem
+      key={product.id}
+      id={product.id}
+      name={product.name}
+      description={product.description}
+      price={product.price}
+    />
   ))
   return (
     <section className={classes.products}>
