@@ -5,7 +5,7 @@ import ShopListContext from '../../store/shop-list-context'
 import ShopListIcon from '../ShopList/ShopListIcon'
 import classes from './HeaderShopListButton.module.css'
 
-const HeaderShopListButton = () => {
+const HeaderShopListButton = (props) => {
   const [buttonIsBumping, setButtonIsBumping] = useState(false)
 
   const shopListContext = useContext(ShopListContext)
@@ -33,7 +33,7 @@ const HeaderShopListButton = () => {
   }, [productsList])
 
   return (
-    <button className={buttonClasses}>
+    <button className={buttonClasses} onClick={props.onClick}>
       <span className={classes.icon}>
         <ShopListIcon />
       </span>

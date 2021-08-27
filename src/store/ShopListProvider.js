@@ -49,7 +49,7 @@ const ShopListProvider = (props) => {
 
   const shopListContext = {
     products: shopListState.products,
-    totalAmount: shopListState.totalAmount,
+    totalPrice: shopListState.totalPrice,
     addProduct: addProductToShopListHandler,
     removeProduct: removeProductFromShopListHandler,
   }
