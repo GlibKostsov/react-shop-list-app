@@ -1,4 +1,4 @@
-.shop-item {
+.shop-product {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,7 +7,7 @@
   margin: 1rem 0;
 }
 
-.shop-item h2 {
+.shop-product h2 {
   margin: 0 0 0.5rem 0;
   color: #363636;
 }
@@ -43,7 +43,7 @@
   }
 }
 
-.shop-item button {
+.shop-product button {
   font: inherit;
   font-weight: bold;
   font-size: 1.25rem;
@@ -58,8 +58,8 @@
   margin: 0.25rem;
 }
 
-.shop-item button:hover,
-.shop-item button:active {
+.shop-product button:hover,
+.shop-product button:active {
   background-color: #173018;
   color: #fffef9;
 }

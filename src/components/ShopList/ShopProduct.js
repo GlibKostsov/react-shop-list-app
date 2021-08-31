@@ -1,10 +1,10 @@
-import classes from './ShopItem.module.css'
+import classes from './ShopProduct.module.css'
 
 const ShopItem = (props) => {
   const price = `$${props.price.toFixed(2)}`
 
   return (
-    <li className={classes['shop-item']}>
+    <li className={classes['shop-product']}>
       <div>
         <h2>{props.name}</h2>
         <div className={classes.summary}>
@@ -13,7 +13,7 @@ const ShopItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button>-</button>
+        <button onClick={props.onRemove}>-</button>
         <button onClick={props.onAdd}>+</button>
       </div>
     </li>

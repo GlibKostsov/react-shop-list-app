@@ -30,6 +30,30 @@ const shopListReducer = (state, action) => {
     }
     return { products: newShopList, totalPrice: newTotalPrice }
   }
+
+  if (action.type === 'REMOVE_PRODUCT') {
+    const existingShopListProduct = state.products.find(
+      (product) => product.id === action.productId
+    )
+    const newTotalPrice = state.totalPrice - existingShopListProduct.price
+    let newShopList
+    if (existingShopListProduct.amount > 1) {
+      newShopList = state.products.map((product) =>
+        product.id === existingShopListProduct.id
+          ? {
+              ...existingShopListProduct,
+              amount: --existingShopListProduct.amount,
+            }
+          : product
+      )
+    } else {
+      newShopList = state.products.filter(
+        (product) => product.id !== existingShopListProduct.id
+      )
+    }
+    return { products: newShopList, totalPrice: newTotalPrice }
+  }
+
   return defaultShopListState
 }
 

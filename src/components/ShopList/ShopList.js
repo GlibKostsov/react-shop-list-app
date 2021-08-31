@@ -3,7 +3,7 @@ import Modal from '../UI/Modal'
 
 import classes from './ShopList.module.css'
 import ShopListContext from '../../store/shop-list-context'
-import ShopItem from './ShopItem'
+import ShopProduct from './ShopProduct'
 
 const ShopList = (props) => {
   const shopListContext = useContext(ShopListContext)
@@ -11,18 +11,23 @@ const ShopList = (props) => {
   const totalPaymentAmount = `$${shopListContext.totalPrice.toFixed(2)}`
   const hasItems = shopListContext.products.length > 0
 
-  const shopItemAddHandler = (item) => {
-    shopListContext.addProduct({ ...item, amount: 1 })
+  const shopProductAddHandler = (product) => {
+    shopListContext.addProduct({ ...product, amount: 1 })
+  }
+
+  const shopProductRemoveHandler = (productId) => {
+    shopListContext.removeProduct(productId)
   }
   const shopItems = (
-    <ul className={classes['shop-items']}>
-      {shopListContext.products.map((item) => (
-        <ShopItem
-          key={item.id}
-          name={item.name}
-          amount={item.amount}
-          price={item.price}
-          onAdd={shopItemAddHandler.bind(null, item)}
+    <ul className={classes['shop-products']}>
+      {shopListContext.products.map((product) => (
+        <ShopProduct
+          key={product.id}
+          name={product.name}
+          amount={product.amount}
+          price={product.price}
+          onAdd={shopProductAddHandler.bind(null, product)}
+          onRemove={shopProductRemoveHandler.bind(null, product.id)}
         />
       ))}
     </ul>
@@ -39,7 +44,7 @@ const ShopList = (props) => {
         <button className={classes['close-button']} onClick={props.onClose}>
           Close
         </button>
-        <button className={classes.button}>Order</button>
+        {hasItems && <button className={classes.button}>Order</button>}
       </div>
     </Modal>
   )
